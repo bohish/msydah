@@ -3,7 +3,7 @@ import SwiftUI
 
 @MainActor
 final class AppState: ObservableObject {
-    enum Step { case splash, onboarding, home, request, processing, flights, flightCompare, hotels, hotelCompare, building, itinerary, booking, trips, favorites, profile }
+    enum Step: Equatable { case splash, onboarding, home, request, processing, flights, flightCompare, hotels, hotelCompare, building, itinerary, booking, trips, favorites, profile }
     enum SearchMode { case agent, manual }
 
     @Published var step: Step = .splash
