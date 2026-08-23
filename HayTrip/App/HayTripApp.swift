@@ -9,14 +9,13 @@ struct HayTripApp: App {
             RootView()
                 .environmentObject(appState)
                 .environment(\.layoutDirection, .rightToLeft)
-                .tint(HayTripTheme.richGreen)
+                .tint(HayTripTheme.green)
         }
     }
 }
 
 struct RootView: View {
     @EnvironmentObject private var state: AppState
-
     var body: some View {
         switch state.step {
         case .splash: SplashView()
@@ -30,6 +29,10 @@ struct RootView: View {
         case .hotelCompare: HotelComparisonView()
         case .building: TripBuildingView()
         case .itinerary: ItineraryView()
+        case .booking: BookingNoticeView()
+        case .trips: TripsView()
+        case .favorites: FavoritesView()
+        case .profile: ProfileView()
         }
     }
 }
