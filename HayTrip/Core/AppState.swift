@@ -3,7 +3,7 @@ import SwiftUI
 
 @MainActor
 final class AppState: ObservableObject {
-    enum Step { case splash, onboarding, home, request, processing, flights, flightCompare, hotels, hotelCompare, building, itinerary, trips, favorites, profile }
+    enum Step { case splash, onboarding, home, request, processing, flights, flightCompare, hotels, hotelCompare, building, itinerary, booking, trips, favorites, profile }
     enum SearchMode { case agent, manual }
 
     @Published var step: Step = .splash
@@ -26,12 +26,6 @@ final class AppState: ObservableObject {
     var totalCost: Int { (selectedFlight?.price ?? 0) + (selectedHotel?.totalPrice ?? 0) + activitiesCost }
     var balance: Int { budgetValue - totalCost }
 
-    func go(_ next: Step) {
-        withAnimation(.easeInOut(duration: 0.28)) { step = next }
-    }
-
-    func resetComparisons() {
-        compareFlightIDs.removeAll()
-        compareHotelIDs.removeAll()
-    }
+    func go(_ next: Step) { withAnimation(.easeInOut(duration: 0.28)) { step = next } }
+    func resetComparisons() { compareFlightIDs.removeAll(); compareHotelIDs.removeAll() }
 }
