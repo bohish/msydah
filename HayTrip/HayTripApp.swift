@@ -24,7 +24,7 @@ struct HayTripRootView: View {
             switch state.step {
             case .splash: SplashView()
             case .onboarding: OnboardingView()
-            case .home: HomeView()
+            case .home: BrandHomeView()
             case .request: TripRequestView()
             case .processing: ProcessingView()
             case .flights: FlightResultsView()
@@ -40,6 +40,6 @@ struct HayTripRootView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(HayTripTheme.ivory.ignoresSafeArea())
+        .background(HayTripTheme.offWhite.ignoresSafeArea())
     }
 }
